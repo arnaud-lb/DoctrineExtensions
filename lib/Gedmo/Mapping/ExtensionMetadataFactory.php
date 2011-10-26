@@ -143,6 +143,9 @@ final class ExtensionMetadataFactory
             }
         } else {
             $driverName = substr($driverName, 0, strpos($driverName, 'Driver'));
+            if ('SimplifiedXml' === $driverName) {
+                $driverName = 'Xml';
+            }
             // create driver instance
             $driverClassName = $this->extensionNamespace . '\Mapping\Driver\\' . $driverName;
             if (!class_exists($driverClassName)) {
